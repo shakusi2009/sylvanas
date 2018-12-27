@@ -1,0 +1,26 @@
+spring:
+  # datasource config
+  datasource:
+    url: jdbc:mysql://118.24.39.40:3306/test?useSSL=false&serverTimezone=UTC
+    username: root
+    password: Flzx4qc###
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # Hikari will use the above plus the following to setup connection pooling
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+    minimum-idle: 5
+    maximum-pool-size: 15
+    auto-commit: true
+    idle-timeout: 30000
+    pool-name: HikariCPool
+    max-lifetime: 1800000
+    connection-timeout: 30000
+    connection-test-query: SELECT 1
+
+  # redis config
+  redis:
+    host: "${REDIS_HOST:118.24.39.40}"
+    port: "${REDIS_PORT:6379}"
+    password: "${REDIS_PASSWORD:}"
+    database: "${REDIS_DATABASE:2}"
+    timeout: "${REDIS_TIMEOUT:15000}"
